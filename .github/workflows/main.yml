@@ -12,11 +12,19 @@ jobs:
     name: Build & Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4     # checkout the repo
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()    # run this step even if previous step failed
+      - uses: actions/checkout@v4 
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
         with:
-          name: Report results         # Name of the check run which will be created
-          path: ./TEST-datacontract.xml                  # Path to test results
-          reporter: java-junit              # Format of test results
+          files: |
+            ./*.xml
+            
+      # - name: Test Report
+      #   uses: dorny/test-reporter@v1
+      #   if: success() || failure()    # run this step even if previous step failed
+      #   with:
+      #     name: Report results         # Name of the check run which will be created
+      #     path: ./TEST-datacontract.xml                  # Path to test results
+      #     reporter: java-junit              # Format of test results
