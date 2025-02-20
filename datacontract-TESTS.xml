@@ -1,0 +1,29 @@
+<testsuites>
+    <testsuite package="com.datacontract" id="123" name="Data Contract Test" tests="6" failures="1" errors="0" skipped="0" time="0.356" hostname="localhost" timestamp="2025-02-20T15:38:42">
+        <testcase classname="my_object" name="my_object__field_ok__field_is_present" time="0.01" />
+        <testcase classname="my_object" name="my_object__field_ok__field_required" time="0.01" />
+        <testcase classname="my_object" name="my_object__field_ok__field_minimum" time="0.01" />
+        <testcase classname="my_object" name="my_object__field_nok__field_is_present" time="0.01" />
+        <testcase classname="my_object" name="my_object__field_nok__field_required" time="0.01" />
+        <testcase classname="my_object" name="my_object__field_nok__field_min_length" time="0.01">
+            <failure message="Value: 1 Fail: {'greaterThan': 0.0, 'lessThan': 0.0}">
+            </failure>
+        </testcase>
+        <system-out>
+            <![CDATA[
+                INFO: Testing data contract
+                INFO: Running tests for data contract junit_test with server local
+                INFO: Running engine soda-core
+                INFO: Configuring engine soda-core to connect to local csv with duckdb
+                INFO: Creating table my_object for ./fixtures/junit/data/somedata.csv
+                INFO: Using columns: {'field_ok': 'BIGINT', 'field_nok': 'VARCHAR'}
+                INFO: Soda Core 3.3.20
+                INFO: Using DefaultSampler
+                INFO: Scan summary:
+                INFO: 5/6 checks PASSED
+                INFO: 1/6 checks FAILED
+                INFO: Oops! 1 failures. 0 warnings. 0 errors. 5 pass.
+            ]]>
+        </system-out>
+    </testsuite>
+</testsuites>
