@@ -9,7 +9,7 @@ jobs:
       image: datacontract/cli:latest
       options: --user root
       volumes:
-        - /github/home/.duckdb/:rw
+        - /github/home/.duckdb/
     steps:
       - name: Run Tests
         run: datacontract test https://datacontract.com/examples/orders-latest/datacontract.yaml
