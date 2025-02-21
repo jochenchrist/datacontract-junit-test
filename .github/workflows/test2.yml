@@ -12,4 +12,4 @@ jobs:
             image: datacontract/cli:latest
             options: -v ${{ github.workspace }}:/app/
             run: |
-              test https://datacontract.com/examples/orders-latest/datacontract.yaml
+              datacontract test https://datacontract.com/examples/orders-latest/datacontract.yaml
