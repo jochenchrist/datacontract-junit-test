@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: datacontract/cli:latest
+      env:
+        home_directory: /tmp
     steps:
       - name: Run Tests
         run: datacontract test https://datacontract.com/examples/orders-latest/datacontract.yaml
