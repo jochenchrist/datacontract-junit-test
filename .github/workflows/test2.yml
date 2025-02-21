@@ -1,0 +1,15 @@
+on:
+  push:
+  workflow_dispatch:
+    
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run datacontract test in Docker
+        uses: addnab/docker-run-action@v3
+        with:
+            image: datacontract/cli:latest
+            options: -v ${{ github.workspace }}:/app/
+            run: |
+              test https://datacontract.com/examples/orders-latest/datacontract.yaml
