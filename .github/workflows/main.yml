@@ -14,12 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4 
 
-      - name: Data Contract Test Results (EnricoMi/publish-unit-test-result-action)
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: success() || failure()  
-        with:
-          files: |
-            ./*.xml
+      # - name: Data Contract Test Results (EnricoMi/publish-unit-test-result-action)
+      #   uses: EnricoMi/publish-unit-test-result-action@v2
+      #   if: success() || failure()  
+      #   with:
+      #     files: |
+      #       ./*.xml
             
       - name: Data Contract Test Results (dorny/test-reporter)
         uses: dorny/test-reporter@v1
