@@ -1,0 +1,12 @@
+on:
+  push:
+  workflow_dispatch:
+    
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: datacontract/cli:latest
+    steps:
+      - name: Run Tests
+        run: datacontract test https://datacontract.com/examples/orders-latest/datacontract.yaml
