@@ -14,7 +14,7 @@
     <failure message="Value: 1 Fail: {'greaterThan': 0.0, 'lessThan': 0.0}" type="schema">Value: 1 Fail: {'greaterThan': 0.0, 'lessThan': 0.0}
 {'blocks': [{'type': 'failedRowsAnalysis', 'title': 'Failed Rows Analysis', 'file': {'columns': [{'name': 'field_ok', 'type': 'NUMBER'}, {'name': 'field_nok', 'type': 'STRING'}], 'totalRowCount': 1, 'storedRowCount': 1, 'reference': {'type': 'noFile', 'message': 'Samples are not sent to Soda Cloud', 'link': {'href': None, 'text': None}, 'fileId': ''}}, 'failingRowsQueryName': '3.local.my_object.field_nok.failed_rows[invalid_count].failing_sql', 'passingRowsQueryName': '3.local.my_object.field_nok.failed_rows[invalid_count].passing_sql', 'totalFailingRows': 1, 'sampleRowCount': 1}], 'value': 1, 'fail': {'greaterThan': 0.0, 'lessThan': 0.0}}</failure>
   </testcase>
-  <system-out>2025-02-21 07:31:05.240296+00:00 INFO: Testing data contract
+  <system-err>2025-02-21 07:31:05.240296+00:00 INFO: Testing data contract
 2025-02-21 07:31:05.306432+00:00 INFO: Running tests for data contract junit_test with server local
 2025-02-21 07:31:05.440876+00:00 INFO: Running engine soda-core
 2025-02-21 07:31:05.442779+00:00 INFO: Configuring engine soda-core to connect to local csv with duckdb
@@ -35,5 +35,5 @@
 2025-02-21 07:31:05+00:00 INFO:       my_object__field_nok__field_min_length [FAILED]
 2025-02-21 07:31:05+00:00 INFO:         check_value: 1
 2025-02-21 07:31:05+00:00 INFO: Oops! 1 failures. 0 warnings. 0 errors. 5 pass.
-</system-out>
+</system-err>
 </testsuite>
