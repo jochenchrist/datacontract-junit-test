@@ -29,8 +29,8 @@ jobs:
           path: ./TEST-datacontract.xml                  # Path to test results
           reporter: java-junit              # Format of test results
       
-      - name: Test Summary
-        uses: test-summary/action@v2
-        with:
-          paths: "./TEST-datacontract.xml"
-        if: always()
+      # - name: Test Summary
+      #   uses: test-summary/action@v2
+      #   with:
+      #     paths: "./TEST-datacontract.xml"
+      #   if: always()
