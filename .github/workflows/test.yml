@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: datacontract/cli:latest
+      options: --user root
       volumes:
-        - /github/home/.duckdb/
+        - /github/home/.duckdb/:rw
     steps:
       - name: Run Tests
         run: datacontract test https://datacontract.com/examples/orders-latest/datacontract.yaml
