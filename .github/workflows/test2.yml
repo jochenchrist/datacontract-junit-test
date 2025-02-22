@@ -1,7 +1,13 @@
 on:
   push:
   workflow_dispatch:
-    
+
+# permissions are needed for dorny/test-reporter
+permissions:
+  contents: read
+  actions: read
+  checks: write
+  
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
