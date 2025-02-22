@@ -10,11 +10,11 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
             image: datacontract/cli:snapshot-latest
-            options: -v ${{ github.workspace }}:/app:rw
+            options: -v ${{ github.workspace }}:/workspace
             run: |
               datacontract test \
               --output-format junit \
-              --output /app/TEST-datacontract.xml \
+              --output /workspace/TEST-datacontract.xml \
               https://datacontract.com/examples/orders-latest/datacontract.yaml 
       - name: Echo
         if: ${{ always() }}
