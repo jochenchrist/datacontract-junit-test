@@ -9,7 +9,7 @@ jobs:
       - name: Run datacontract test in Docker
         uses: addnab/docker-run-action@v3
         with:
-            image: datacontract/cli:latest
+            image: datacontract/cli:snapshot-latest
             options: -v ${{ github.workspace }}:/app/
             run: |
               datacontract test https://datacontract.com/examples/orders-latest/datacontract.yaml
