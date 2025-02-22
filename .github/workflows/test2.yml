@@ -18,13 +18,13 @@ jobs:
               https://datacontract.com/examples/orders-latest/datacontract.yaml 
       - name: Echo
         if: ${{ always() }}
-        run: cat ./TEST-datacontract.xml
+        run: cat /workspace/TEST-datacontract.xml
 
       - name: Data Contract Test Results (dorny/test-reporter)
         uses: dorny/test-reporter@v1
         if: success() || failure()  
         with:
           name: Data Contract Test Results (dorny/test-reporter)
-          path: ./TEST-datacontract.xml                  # Path to test results
+          path: /workspace/TEST-datacontract.xml                  # Path to test results
           reporter: java-junit              # Format of test results
       
