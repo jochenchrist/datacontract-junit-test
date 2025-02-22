@@ -4,7 +4,7 @@ on:
 
 # permissions are needed for dorny/test-reporter
 permissions:
-  contents: read
+  contents: write
   actions: read
   checks: write
   
