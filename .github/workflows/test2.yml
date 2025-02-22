@@ -6,6 +6,8 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Run datacontract test in Docker
         uses: addnab/docker-run-action@v3
         with:
