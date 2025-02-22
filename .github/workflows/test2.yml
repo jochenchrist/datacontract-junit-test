@@ -10,7 +10,7 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
             image: datacontract/cli:snapshot-latest
-            options: -v ${{ github.workspace }}:/app/
+            options: -v ${{ github.workspace }}:/app/:rw
             run: |
               datacontract test \
               --output-format junit \
