@@ -17,6 +17,6 @@ jobs:
               --output /app/TEST-datacontract.xml \
               https://datacontract.com/examples/orders-latest/datacontract.yaml 
       - name: Echo
-        run: |
-          cat ./TEST-datacontract.xml
+        if: ${{ always() }}
+        run: cat ./TEST-datacontract.xml
               
