@@ -12,4 +12,5 @@ jobs:
             image: datacontract/cli:snapshot-latest
             options: -v ${{ github.workspace }}:/app/
             run: |
-              datacontract test https://datacontract.com/examples/orders-latest/datacontract.yaml
+              datacontract test https://datacontract.com/examples/orders-latest/datacontract.yaml -output-format junit -output ./test-results/TEST-datacontract.xml
+              
