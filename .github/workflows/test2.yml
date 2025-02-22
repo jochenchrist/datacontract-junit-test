@@ -11,6 +11,7 @@ jobs:
         with:
             image: datacontract/cli:snapshot-latest
             options: |
+              --user root
               --volume ${{ github.workspace }}:/home/datacontract
             run: |
               datacontract test \
