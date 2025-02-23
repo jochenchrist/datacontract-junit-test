@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Data Contract Tests
-        uses: datacontract/cli
+        uses: datacontract/datacontract-action@main
         with:
           location: https://datacontract.com/examples/orders-latest/datacontract.yaml
       # - name: Run datacontract test in Docker
