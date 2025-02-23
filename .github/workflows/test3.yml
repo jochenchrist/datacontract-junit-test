@@ -17,9 +17,9 @@ jobs:
         run: curl -o datacontract.yaml https://datacontract.com/examples/orders-latest/datacontract.yaml
       - name: Data Contract Tests
         uses: datacontract/datacontract-action@main
-        with:
-          location: https://datacontract.com/examples/orders-latest/datacontract.yaml
-          server: all
+        # with:
+          # location: https://datacontract.com/examples/orders-latest/datacontract.yaml
+          # server: all
           
       - name: Echo
         if: always()
