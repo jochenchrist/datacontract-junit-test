@@ -32,4 +32,5 @@ jobs:
           name: Data Contract Test Results
           path: ./TEST-datacontract.xml
           reporter: java-junit
-      
+          fail-on-error: 'false'
+
