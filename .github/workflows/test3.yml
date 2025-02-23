@@ -1,0 +1,43 @@
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+  checks: write
+  
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Data Contract Tests
+        uses: datacontract/datacontract-action
+        with:
+          location: https://datacontract.com/examples/orders-latest/datacontract.yaml
+      # - name: Run datacontract test in Docker
+      #   uses: addnab/docker-run-action@v3
+      #   with:
+      #       image: datacontract/cli:snapshot-latest
+      #       options: |
+      #         --user root
+      #         --volume ${{ github.workspace }}:/home/datacontract
+      #       run: |
+      #         datacontract test \
+      #         --output-format junit \
+      #         --output /home/datacontract/TEST-datacontract.xml \
+      #         https://datacontract.com/examples/orders-latest/datacontract.yaml 
+      # - name: Echo
+      #   if: ${{ always() }}
+      #   run: cat TEST-datacontract.xml
+
+      # - name: Data Contract Test Results (dorny/test-reporter)
+      #   uses: dorny/test-reporter@v1
+      #   if: success() || failure()  
+      #   with:
+      #     name: Data Contract Test Results (dorny/test-reporter)
+      #     path: ./TEST-datacontract.xml                  # Path to test results
+      #     reporter: java-junit              # Format of test results
+      
