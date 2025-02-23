@@ -13,21 +13,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Download data contract
+        run: curl -o datacontract.yaml https://datacontract.com/examples/orders-latest/datacontract.yaml
       - name: Data Contract Tests
         uses: datacontract/datacontract-action@main
         with:
           location: https://datacontract.com/examples/orders-latest/datacontract.yaml
           server: all
           
-      # - name: Echo
-      #   if: ${{ always() }}
-      #   run: cat TEST-datacontract.xml
+      - name: Echo
+        if: always()
+        run: cat TEST-datacontract.xml
 
-      - name: Data Contract Test Results (dorny/test-reporter)
+      - name: Data Contract Test Results
         uses: dorny/test-reporter@v1
-        if: success() || failure()  
+        if: always()
         with:
-          name: Data Contract Test Results (dorny/test-reporter)
-          path: ./TEST-datacontract.xml                  # Path to test results
-          reporter: java-junit              # Format of test results
+          name: Data Contract Test Results
+          path: ./TEST-datacontract.xml
+          reporter: java-junit
       
