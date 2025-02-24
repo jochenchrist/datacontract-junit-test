@@ -18,7 +18,12 @@ jobs:
         # with:
           # location: https://datacontract.com/examples/orders-latest/datacontract.yaml
           # server: all
-          
+        env:
+          DATACONTRACT_SNOWFLAKE_USERNAME: ${{ secrets.DATACONTRACT_SNOWFLAKE_USERNAME }}
+          DATACONTRACT_SNOWFLAKE_PASSWORD: ${{ secrets.DATACONTRACT_SNOWFLAKE_PASSWORD }}
+          DATACONTRACT_SNOWFLAKE_WAREHOUSE: ${{ secrets.DATACONTRACT_SNOWFLAKE_WAREHOUSE }}
+          DATACONTRACT_SNOWFLAKE_ROLE: ${{ secrets.DATACONTRACT_SNOWFLAKE_ROLE }}
+      
       - name: Echo
         if: always()
         run: cat TEST-datacontract.xml
