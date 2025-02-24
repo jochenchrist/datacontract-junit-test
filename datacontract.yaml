@@ -38,10 +38,10 @@ models:
         examples:
         - 100-0314677
       CUSTOMER_ID:
-        $ref: https://demo.datamesh-manager.com/demo244703105805/definitions/sales/customer_id
+        type: string
         required: true
       EMAIL:
-        $ref: https://demo.datamesh-manager.com/demo244703105805/definitions/sales/customer_email
+        type: string
       PHONE_NUMBER:
         type: text
         description: phone number of the customer
@@ -81,11 +81,11 @@ models:
         format: uuid
         primaryKey: true
       ORDER_ID:
-        $ref: https://demo.datamesh-manager.com/demo244703105805/definitions/sales/order_id
+        type: string
         required: true
         references: orders.ORDER_ID
       ARTICLE_SKU:
-        $ref: https://demo.datamesh-manager.com/demo244703105805/definitions/fulfillment/sku
+        type: string
         required: true
 servicelevels:
   availability:
