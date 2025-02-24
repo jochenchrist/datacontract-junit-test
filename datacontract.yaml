@@ -37,7 +37,7 @@ models:
         - business-key
       PREVIOUS_ORDER_ID:
         title: Previous Order ID
-        type: string
+        type: int
         description: "If this order is a follow up as customer service had to cancel the previous order, the order id of the previous order is put in there."
         references: orders.ORDER_ID
         examples:
