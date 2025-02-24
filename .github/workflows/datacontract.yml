@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Download data contract
-        run: curl -o datacontract.yaml https://datacontract.com/examples/orders-latest/datacontract.yaml
       - name: Data Contract Tests
         uses: datacontract/datacontract-action@main
         # with:
