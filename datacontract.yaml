@@ -9,6 +9,12 @@ info:
   contact:
     name: Scarlett Layton
     email: scarlett.layton@demo4OH8794gsA1S7tFCbEFHxy.datamesh-manager.com
+servers:
+  production:
+    type: snowflake
+    account: lmtrwxs-xn14859
+    database: ORDER_DB
+    schema: ORDERS_PII_V2
 terms:
   usage: Max. 10x queries per day
   limitations: Not suitable for real-time use cases
