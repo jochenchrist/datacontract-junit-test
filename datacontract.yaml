@@ -1,0 +1,107 @@
+dataContractSpecification: 1.1.0
+id: snowflake_orders_pii_v2
+info:
+  title: Orders
+  version: 1.0.0
+  description: "All order-created events, with PII."
+  status: active
+  owner: sales-team
+  contact:
+    name: Scarlett Layton
+    email: scarlett.layton@demo4OH8794gsA1S7tFCbEFHxy.datamesh-manager.com
+terms:
+  usage: Max. 10x queries per day
+  limitations: Not suitable for real-time use cases
+  billing: $1000 / month
+  noticePeriod: P3M
+models:
+  orders:
+    description: Table containing order information with PII.
+    title: Orders
+    fields:
+      ORDER_ID:
+        title: Order ID
+        type: string
+        description: The user-facing ID that identifies an order in the online shop. Also used for support requests.
+        examples:
+        - 100-0314678
+        classification: restricted
+        required: true
+        primaryKey: true
+        tags:
+        - business-key
+      PREVIOUS_ORDER_ID:
+        title: Previous Order ID
+        type: string
+        description: "If this order is a follow up as customer service had to cancel the previous order, the order id of the previous order is put in there."
+        references: orders.ORDER_ID
+        examples:
+        - 100-0314677
+      CUSTOMER_ID:
+        $ref: https://demo.datamesh-manager.com/demo244703105805/definitions/sales/customer_id
+        required: true
+      EMAIL:
+        $ref: https://demo.datamesh-manager.com/demo244703105805/definitions/sales/customer_email
+      PHONE_NUMBER:
+        type: text
+        description: phone number of the customer
+        pii: true
+        title: Phone Number
+      INVOICE_ADDRESS:
+        description: The address that is put in the invoice.
+        type: object
+        fields:
+          ADDRESS_LINE:
+            type: text
+            description: Street name and number
+            title: Street
+          CITY_LINE:
+            type: text
+            description: City name and ZIP Code
+            title: City and ZIP Code
+      ORDER_DATE:
+        type: timestamp
+        description: Date of the order
+        required: true
+        title: Order Date
+      ORDER_TOTAL:
+        type: decimal
+        description: Total amount of the order
+        required: true
+        title: Order Total
+        precision: 38
+        scale: 2
+  line_items:
+    title: Line Items
+    description: Table containing line items of an order.
+    fields:
+      LINE_ITEM_ID:
+        description: The unique identifier of the line item. A simple UUID is generated.
+        type: string
+        format: uuid
+        primaryKey: true
+      ORDER_ID:
+        $ref: https://demo.datamesh-manager.com/demo244703105805/definitions/sales/order_id
+        required: true
+        references: orders.ORDER_ID
+      ARTICLE_SKU:
+        $ref: https://demo.datamesh-manager.com/demo244703105805/definitions/fulfillment/sku
+        required: true
+servicelevels:
+  availability:
+    description: The server is available during support hours
+    percentage: 99.9%
+  retention:
+    description: Data is retained for one year
+    period: P1Y
+    unlimited: false
+  freshness:
+    description: The age of the youngest row in a table.
+    threshold: 25h
+  frequency:
+    description: Data is delivered once a day
+    type: batch
+    interval: daily
+    cron: 0 0 * * *
+tags:
+- popular
